@@ -1,0 +1,117 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Login Page</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+      {% include 'header.html' %}
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+  
+      <div class="row" style="margin-left:2%;margin-right:2%;">
+        <div class="col-md-3" > 
+        <ul style="width:100%;list-style: none;">
+          <li><a href="{% url 'dashboarddemo' %}"><button style="width:100%;" type="button" class="btn btn-success">Dashboard</button></a></li>
+      
+          <li><a href="#"><button type="button" class="btn btn-primary" style="width:100%;">Master Page</button></a></li>
+      
+          <li><a href="#"><button type="button" class="btn btn-primary" style="width:100%;">Reports</button></a></li>
+      
+          <li><a href="{% url 'home' %}"><button type="button" class="btn btn-danger" style="width:100%;">Logout</button></a></li>
+         
+        </ul>
+        </div>
+        <div class="col-md-9">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Message</th>
+      
+            </tr>
+          </thead>
+          <tbody>
+            
+              {% for x in abc %}
+              <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ x.name }} </td>
+              <td>{{ x.email }}</td>
+              <td>{{ x.phone }}</td>
+              <td>{{ x.message }}</td>
+              </tr>
+            
+             <!-- {{ forloop.counter }} 
+            used for display sr. numbers in table, it is not table id 
+            if you want to display table id which default created by django 
+            {{ info.id }} it will show table id-->
+      
+            {% endfor %}
+            
+          </tbody>
+        </table>
+      </div>
+
+
+  <!-- ======= Footer ======= -->
+  
+        {% include 'footer.html' %}
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
